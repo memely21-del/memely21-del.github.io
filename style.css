@@ -1,0 +1,281 @@
+/* --------- tokens --------- */
+:root{
+  --cream:#F5F1E8;
+  --cream-2:#EDE7DA;
+  --ink:#2A2420;
+  --ink-soft:#6A5F55;
+  --line:#DED5C4;
+  --accent:#B4795A;      /* terracotta from her ET monogram */
+  --accent-dk:#8E5B41;
+  --white:#FFFDF9;
+  --radius:16px;
+  --maxw:1180px;
+  --shadow:0 14px 34px rgba(42,36,32,.10);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--accent-dk)}
+h1,h2,h3{margin:0 0 .4em; line-height:1.15}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+.wrap--narrow{max-width:720px}
+.center{text-align:center}
+
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:12px; top:12px; z-index:99; background:var(--ink); color:#fff;
+  padding:10px 16px; border-radius:8px}
+
+/* --------- hero --------- */
+.hero{background:linear-gradient(180deg,var(--cream-2),var(--cream)); padding:56px 0 64px; border-bottom:1px solid var(--line)}
+.hero__grid{display:grid; grid-template-columns:minmax(0,440px) minmax(0,1fr); gap:52px; align-items:center}
+.hero__photo{position:relative}
+.hero__photo>img:first-child{
+  width:100%; border-radius:130px 130px 22px 22px; box-shadow:var(--shadow);
+}
+.hero__mark{position:absolute; left:-14px; top:-14px; width:104px; height:104px;
+  border-radius:50%; background:var(--cream); padding:6px; box-shadow:0 4px 14px rgba(0,0,0,.08)}
+
+.eyebrow{margin:0 0 2px; font-size:.78rem; font-weight:600; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--accent-dk)}
+.signature{font-family:"Parisienne",cursive; font-size:clamp(3rem,8vw,4.6rem);
+  line-height:.95; margin:0 0 .18em; color:var(--ink)}
+.hero h1{font-size:clamp(1.5rem,3.3vw,2.15rem); font-weight:600; letter-spacing:-.012em; max-width:19ch}
+.hero h1 em{font-style:normal; color:var(--accent-dk)}
+.lede{font-size:1.06rem; color:var(--ink-soft); max-width:52ch; margin:.6em 0 0}
+.lede--center{margin-left:auto; margin-right:auto; text-align:center}
+
+.proof{display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:22px 0 26px}
+.proof li{background:var(--white); border:1px solid var(--line); border-radius:999px;
+  padding:7px 15px; font-size:.87rem; color:var(--ink-soft)}
+.proof strong{color:var(--ink); font-weight:700}
+
+.cta-row{display:flex; flex-wrap:wrap; gap:12px}
+.btn{display:inline-block; border-radius:999px; padding:13px 26px; font-weight:600;
+  text-decoration:none; font-size:.97rem; transition:transform .12s ease, background .18s ease}
+.btn--primary{background:var(--accent); color:#fff; box-shadow:0 6px 18px rgba(180,121,90,.32)}
+.btn--primary:hover{background:var(--accent-dk); transform:translateY(-1px)}
+.btn--ghost{border:1.5px solid var(--line); color:var(--ink); background:transparent}
+.btn--ghost:hover{border-color:var(--accent); color:var(--accent-dk)}
+.btn--lg{font-size:1.06rem; padding:16px 34px}
+
+.hero__meta{margin:22px 0 0; font-size:.9rem; color:var(--ink-soft); display:flex;
+  flex-wrap:wrap; gap:9px; align-items:center}
+
+/* --------- sections --------- */
+.section{padding:74px 0}
+.section--alt{background:var(--cream-2); border-block:1px solid var(--line)}
+.script{font-family:"Caveat",cursive; font-size:clamp(2.3rem,5.4vw,3.2rem); font-weight:600;
+  text-align:center; margin:0 0 .25em}
+.cat{font-size:.8rem; font-weight:700; letter-spacing:.19em; text-transform:uppercase;
+  color:var(--accent-dk); margin:44px 0 16px; padding-bottom:9px; border-bottom:1px solid var(--line)}
+
+.disclosure{max-width:64ch; margin:0 auto 8px; text-align:center; color:var(--ink-soft);
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px 24px; font-size:.98rem}
+.disclosure strong{color:var(--ink)}
+
+.note{margin:26px 0 0; text-align:center; font-size:.9rem; color:var(--ink-soft)}
+
+/* --------- video grid --------- */
+.grid{list-style:none; padding:0; margin:0; display:grid; gap:26px}
+.grid--video{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid--one{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid--one .tile{grid-column:2}
+
+.tile__title{margin:14px 0 1px; font-weight:600; font-size:.97rem; line-height:1.35}
+.tile__meta{margin:0; font-size:.83rem; color:var(--ink-soft)}
+
+.player{
+  display:block; position:relative; width:100%; padding:0; border:0; cursor:pointer;
+  background:#000; border-radius:22px; overflow:hidden; box-shadow:var(--shadow);
+  aspect-ratio:9/16;
+}
+.player img{width:100%; height:100%; object-fit:cover; display:block}
+/* the video overlays the poster. Left in normal flow it stacks BELOW the img and
+   overflow:hidden clips it away -> black box with sound. Measured: 0% visible. */
+.player video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  display:block; background:#000}
+.player:focus-visible{outline:3px solid var(--accent); outline-offset:3px}
+.play{
+  position:absolute; inset:0; margin:auto; width:58px; height:58px; border-radius:50%;
+  background:rgba(255,255,255,.9); box-shadow:0 4px 16px rgba(0,0,0,.28);
+  transition:transform .15s ease, background .15s ease;
+}
+.play::after{content:""; position:absolute; left:53%; top:50%; transform:translate(-50%,-50%);
+  border-style:solid; border-width:11px 0 11px 18px; border-color:transparent transparent transparent var(--ink)}
+.player:hover .play{transform:scale(1.09); background:#fff}
+.player.is-playing .play{display:none}
+
+/* --------- photo grid --------- */
+.grid--photo{display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top:34px}
+.grid--photo li{margin:0; flex:0 1 calc(25% - 12px)}
+.grid--photo img{border-radius:12px; box-shadow:0 8px 22px rgba(42,36,32,.09);
+  aspect-ratio:3/4; object-fit:cover; width:100%}
+
+/* --------- about --------- */
+.about{font-size:1.1rem; text-align:center; margin:0 auto; max-width:60ch}
+.about--es{margin-top:16px; font-size:.98rem; color:var(--ink-soft)}
+
+/* --------- services --------- */
+.cols{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin-top:34px; align-items:start}
+.card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:26px 24px}
+.card h3{font-size:1.05rem; margin:0 0 12px}
+.ticks{list-style:none; padding:0; margin:0}
+.ticks li{position:relative; padding-left:22px; margin:7px 0; font-size:.95rem; color:var(--ink-soft)}
+.ticks li::before{content:""; position:absolute; left:2px; top:.62em; width:8px; height:8px;
+  border-radius:50%; background:var(--accent); opacity:.55}
+
+/* --------- rates --------- */
+.cols--rates{margin-top:34px}
+.rate{background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+  padding:28px 24px; text-align:center}
+.rate--feature{border-color:var(--accent); box-shadow:0 10px 26px rgba(180,121,90,.16)}
+.rate__label{margin:0; font-size:.78rem; font-weight:700; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent-dk)}
+.rate__price{margin:.35em 0 .2em; font-size:1.95rem; font-weight:700; letter-spacing:-.02em}
+.rate__note{margin:0; font-size:.88rem; color:var(--ink-soft)}
+.addons{list-style:none; padding:0; margin:26px auto 0; max-width:640px}
+.addons li{border-bottom:1px dashed var(--line); padding:11px 2px; font-size:.94rem; color:var(--ink-soft)}
+.addons li:last-child{border-bottom:0}
+.addons strong{color:var(--ink); font-weight:600}
+
+/* --------- contact --------- */
+.section--contact{background:var(--cream-2); border-top:1px solid var(--line); padding:78px 0}
+.mark{width:78px; height:78px; margin:0 auto 14px; border-radius:50%}
+.socials{display:flex; justify-content:center; gap:26px; flex-wrap:wrap; margin:22px 0 0; font-size:.95rem}
+.fineprint{margin:20px 0 0; font-size:.86rem; color:var(--ink-soft)}
+
+.foot{padding:28px 0; font-size:.85rem; color:var(--ink-soft); border-top:1px solid var(--line)}
+.foot p{margin:0}
+
+/* --------- responsive --------- */
+@media (max-width:960px){
+  .hero__grid{grid-template-columns:1fr; gap:32px; text-align:center}
+  .hero__photo{max-width:330px; margin:0 auto}
+  .hero h1,.lede{max-width:none}
+  .proof,.cta-row,.hero__meta{justify-content:center}
+  .cols{grid-template-columns:1fr}
+  .grid--photo li{flex:0 1 calc(33.333% - 11px)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .section{padding:54px 0}
+  .grid--video,.grid--one{grid-template-columns:1fr; gap:30px; max-width:340px; margin-inline:auto}
+  .grid--one .tile{grid-column:auto}
+  .grid--photo{gap:12px}
+  .grid--photo li{flex:0 1 calc(50% - 6px)}
+  .disclosure{padding:17px 18px; font-size:.94rem}
+  .btn{width:100%; text-align:center}
+  .cta-row{flex-direction:column}
+  .hero__mark{width:78px; height:78px; left:-6px; top:-6px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important; animation:none !important}
+}
+
+/* ----------- sticky nav — a brand should never have to scroll to find rates ----------- */
+.nav{position:sticky; top:0; z-index:50; background:rgba(245,241,232,.92);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.nav__in{display:flex; align-items:center; justify-content:space-between; gap:16px; height:56px}
+.nav__brand{display:flex; align-items:center; gap:9px; font-weight:600; font-size:.95rem;
+  color:var(--ink); text-decoration:none; white-space:nowrap}
+.nav__brand img{width:26px; height:26px; border-radius:50%}
+.nav__links{display:flex; align-items:center; gap:20px; font-size:.92rem}
+.nav__links a{color:var(--ink-soft); text-decoration:none}
+.nav__links a:hover{color:var(--accent-dk)}
+.nav__cta{background:var(--accent); color:#fff !important; border-radius:999px;
+  padding:8px 18px; font-weight:600}
+.nav__cta:hover{background:var(--accent-dk)}
+
+/* ----------- language switch on each tile ----------- */
+.langs{display:inline-flex; margin-top:7px; border:1px solid var(--line);
+  border-radius:999px; overflow:hidden; background:var(--white)}
+.lang{border:0; background:transparent; cursor:pointer; font:inherit; font-size:.74rem;
+  font-weight:700; letter-spacing:.09em; padding:5px 13px; color:var(--ink-soft)}
+.lang.is-on{background:var(--accent); color:#fff}
+.lang:not(.is-on):hover{color:var(--accent-dk)}
+.lang:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.lang-only{margin:7px 0 0; font-size:.74rem; font-weight:700; letter-spacing:.09em;
+  color:var(--ink-soft); text-transform:uppercase}
+.tile__note{margin:6px 0 0; font-size:.78rem; line-height:1.4; color:var(--accent-dk)}
+
+/* ----------- density: the video section was 9.3 phone-screens on its own ----------- */
+@media (max-width:640px){
+  .grid--video,.grid--one{grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; max-width:none}
+  .grid--one .tile{grid-column:auto}
+  .grid--photo li{flex:0 1 calc(33.333% - 8px)}
+  .grid--photo{gap:10px}
+  .tile__title{font-size:.85rem; margin-top:10px}
+  .tile__meta{font-size:.75rem}
+  .player{border-radius:16px}
+  .play{width:44px; height:44px}
+  .play::after{border-width:8px 0 8px 13px}
+  .section{padding:44px 0}
+  .cat{margin:30px 0 12px}
+  .nav__links{gap:13px; font-size:.86rem}
+  .nav__cta{padding:7px 14px}
+  .nav__brand span{display:none}
+}
+@media (max-width:400px){
+  .nav__brand{font-size:0}
+  .nav__brand img{width:28px; height:28px}
+}
+.lang-warn{margin:6px 0 0; font-size:.76rem; color:var(--accent-dk)}
+
+
+/* ----------- hero: availability + the niches a brand scans for ----------- */
+.avail{display:inline-flex; align-items:center; gap:8px; margin:0 0 10px;
+  font-size:.79rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--ink-soft)}
+.avail::before{content:""; width:9px; height:9px; border-radius:50%; background:#3fae6a;
+  box-shadow:0 0 0 3px rgba(63,174,106,.22)}
+.niches{margin:12px 0 0; font-size:.82rem; font-weight:700; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--accent-dk)}
+
+/* the ES|EN toggle is the one thing the bilingual competition does not have: say so */
+.demo{max-width:64ch; margin:14px auto 0; text-align:center; font-size:.95rem;
+  color:var(--ink-soft)}
+.demo strong{color:var(--accent-dk)}
+
+/* ----------- process: what replaces testimonials when there are no clients yet ----------- */
+.steps{counter-reset:s; list-style:none; padding:0; margin:34px 0 0; display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px}
+.steps li{counter-increment:s; background:var(--white); border:1px solid var(--line);
+  border-radius:var(--radius); padding:24px 22px}
+.steps li::before{content:"0" counter(s); display:block; margin-bottom:10px;
+  font-size:.78rem; font-weight:700; letter-spacing:.16em; color:var(--accent)}
+.steps h3{margin:0 0 8px; font-size:1rem}
+.steps p{margin:0; font-size:.92rem; color:var(--ink-soft); line-height:1.55}
+
+/* ----------- FAQ: <details> so it collapses with no JavaScript at all ----------- */
+.faq{max-width:70ch; margin:34px auto 0}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer; padding:16px 2px; font-weight:600; font-size:1rem;
+  list-style:none; display:flex; justify-content:space-between; gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+"; color:var(--accent); font-weight:700; flex:0 0 auto}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.faq p{margin:0 0 18px; font-size:.95rem; color:var(--ink-soft); line-height:1.62}
+
+/* four price cards need to breathe less than three did */
+.cols--rates{grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px}
+.cols--rates .rate{padding:24px 18px}
+
+@media (max-width:980px){
+  .cols--rates{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .avail,.niches{width:100%}
+}
+@media (max-width:560px){
+  .cols--rates,.steps{grid-template-columns:1fr}
+}
