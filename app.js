@@ -20,7 +20,7 @@
     var lang = btn.dataset.lang || 'es';
     var src = btn.getAttribute('data-' + lang) || btn.getAttribute('data-es');
     // the media file gets its own cache key, so a stale/partial copy can't stick around
-    return src + (src.indexOf('?') < 0 ? '?v=18' : '&v=18');
+    return src + (src.indexOf('?') < 0 ? '?v=20' : '&v=20');
   }
 
   function videoFor(btn) {
